@@ -17,17 +17,17 @@ jobs:
   golang-ci:
     uses: cccteam/github-workflows/.github/workflows/golang-ci.yml@v5.12.4
     with:
-      runs-on: Large_Runner
+      runs-on: ubuntu-latest
       build-tags: '["", "dev,skipAuth"]'
       golangci-lint-version: 'v2.4.0'
 
   docker:
     uses: cccteam/github-workflows/.github/workflows/docker-build-and-scan.yml@v5.12.4
     with:
-      runs-on: Large_Runner
+      runs-on: ubuntu-latest
       docker-build-args: '["APP_DEPLOYMENT=Prod","APP_SESSION_DURATION=1200","APP_PWA_NAME=\\"Demo App\\"", "APP_PWA_SHORT_NAME=CCCDA"]'
 
   angular:
     uses: cccteam/github-workflows/.github/workflows/angular-ci.yml@v5.12.4
     with:
-      runs-on: Large_Runner
+      runs-on: ubuntu-latest
