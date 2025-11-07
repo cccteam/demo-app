@@ -1,0 +1,16 @@
+name: Task
+description: Create a task
+labels: task
+type: task
+title: '[Task] <task name>'
+body:
+  - type: textarea
+    attributes:
+      label: Description
+      description: Describe the task. Click the `Paste, drop, or click to add files` button below the input box to attach any relevant mockups/requirements.
+      placeholder: This task is to...
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: ''

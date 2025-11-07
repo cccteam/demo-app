@@ -1,0 +1,12 @@
+@let inputUuid = uuid();
+@let inputCaseConfig = resolvedCase();
+@defer {
+  @if (inputUuid !== null && inputCaseConfig) {
+    <app-compound-resource
+      [missingRoot]="missingUuid()"
+      [uuid]="inputUuid"
+      [parentData]="parentData()"
+      [resourceConfig]="inputCaseConfig.config"
+      (resourceCreate)="store.reloadListData()" />
+  }
+}
