@@ -26,6 +26,9 @@ func (PostPayments) Method() accesstypes.Resource {
 }
 
 func (p *PostPayments) Execute(ctx context.Context, db resource.Client, _ *Client) error {
+	ctx, span := ccc.StartTrace(ctx)
+	defer span.End()
+
 	_ = db.ExecuteFunc(ctx, func(ctx context.Context, txn resource.ReadWriteTransaction) error {
 		_ = ctx
 		_ = txn

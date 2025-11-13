@@ -9,7 +9,7 @@ replace github.com/shopspring/decimal v1.4.0 => github.com/jtwatson/decimal v1.4
 require (
 	cloud.google.com/go/spanner v1.86.1
 	github.com/cccteam/access v0.8.7
-	github.com/cccteam/ccc v0.2.14
+	github.com/cccteam/ccc v0.2.15
 	github.com/cccteam/ccc/accesstypes v0.5.2
 	github.com/cccteam/ccc/pkg v0.0.2
 	github.com/cccteam/ccc/resource v0.7.3-0.20251105144802-901efea4ec66
