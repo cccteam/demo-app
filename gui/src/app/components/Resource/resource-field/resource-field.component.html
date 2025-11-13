@@ -1,0 +1,112 @@
+<div [class.hidden-field]="!showField()">
+  @if (showEmptyField()) {
+    <app-empty-readonly-field [label]="fieldConfig().label"></app-empty-readonly-field>
+  } @else {
+    @switch (fieldMeta().displayType) {
+      @case ('date') {
+        <app-date-field
+          [form]="form()"
+          [fieldConfig]="fieldConfig()"
+          [editMode]="mode()"
+          [fieldClass]="fieldClass()"
+          [meta]="meta()"
+          [pristineValue]="pristineValue()"
+          [relatedData]="data()"
+          [fieldMeta]="fieldMeta()"
+          [showField]="showField()">
+        </app-date-field>
+      }
+
+      @case ('civildate') {
+        <app-date-field
+          [form]="form()"
+          [fieldConfig]="fieldConfig()"
+          [editMode]="mode()"
+          [fieldClass]="fieldClass()"
+          [meta]="meta()"
+          [pristineValue]="pristineValue()"
+          [relatedData]="data()"
+          [fieldMeta]="fieldMeta()"
+          [showField]="showField()">
+        </app-date-field>
+      }
+
+      @case ('number') {
+        <app-number-field
+          [form]="form()"
+          [fieldConfig]="fieldConfig()"
+          [editMode]="mode()"
+          [fieldClass]="fieldClass()"
+          [meta]="meta()"
+          [pristineValue]="pristineValue()"
+          [relatedData]="data()"
+          [fieldMeta]="fieldMeta()"
+          [showField]="showField()">
+        </app-number-field>
+      }
+
+      @case ('boolean') {
+        <ng-container *ngTemplateOutlet="booleanFragment"></ng-container>
+      }
+      @case ('nullboolean') {
+        <ng-container *ngTemplateOutlet="booleanFragment"></ng-container>
+      }
+
+      @case ('enumerated') {
+        <app-enumerated-field
+          [form]="form()"
+          [fieldConfig]="fieldConfig()"
+          [editMode]="mode()"
+          [fieldClass]="fieldClass()"
+          [meta]="meta()"
+          [pristineValue]="pristineValue()"
+          [relatedData]="data()"
+          [fieldMeta]="fieldMeta()"
+          [showField]="showField()">
+        </app-enumerated-field>
+      }
+
+      @default {
+        <app-text-field
+          [form]="form()"
+          [fieldConfig]="fieldConfig()"
+          [editMode]="mode()"
+          [fieldClass]="fieldClass()"
+          [meta]="meta()"
+          [pristineValue]="pristineValue()"
+          [relatedData]="data()"
+          [fieldMeta]="fieldMeta()"
+          [showField]="showField()">
+        </app-text-field>
+      }
+    }
+  }
+</div>
+
+<ng-template #booleanFragment>
+  @if (booleanEditDisplayType() === 'boolean') {
+    <app-boolean-field
+      [form]="form()"
+      [fieldConfig]="fieldConfig()"
+      [editMode]="mode()"
+      [fieldClass]="fieldClass()"
+      [meta]="meta()"
+      [pristineValue]="pristineValue()"
+      [relatedData]="data()"
+      [fieldMeta]="fieldMeta()"
+      [showField]="showField()">
+    </app-boolean-field>
+  } @else if (booleanEditDisplayType() === 'nullboolean') {
+    <app-nullboolean-field
+      [form]="form()"
+      [fieldConfig]="fieldConfig()"
+      [editMode]="mode()"
+      [fieldClass]="fieldClass()"
+      [meta]="meta()"
+      [pristineValue]="pristineValue()"
+      [relatedData]="data()"
+      [fieldMeta]="fieldMeta()"
+      [showField]="showField()">
+    </app-nullboolean-field>
+  }
+</ng-template>
