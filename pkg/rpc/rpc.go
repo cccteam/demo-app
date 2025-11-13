@@ -5,8 +5,6 @@ import (
 	"github.com/cccteam/access"
 )
 
-const pkgName = "github.com/cccteam/demo-app/businesslayer/rpc"
-
 type Client struct {
 	userManager access.UserManager
 }
